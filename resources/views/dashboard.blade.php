@@ -1,7 +1,16 @@
 <x-app-layout>
+    <div class="flex justify-between items-center px-20 py-10 bg-white">
+        <div class="flex items-center">
+            <h1 class="font-bold text-2xl">Gigs</h1>
+        </div>
+        <div class="flex items-center">
+            <a href="/gigs/new-gig"><button class="bg-blue-900 text-white py-2 px-4 rounded font-bold">New gig  +</button></a>
+        </div>
+    </div>
+
     <ul class="flex justify-between items-center px-20 bg-white border-b">
         <li>
-            <a href="#" class="flex items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-b-2 border-transparent hover:border-yellow-500 pr-6">
+            <a href="#" class="flex items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-b-2 border-transparent border-yellow-500 pr-6">
                 <span class="ml-2 text-sm tracking-wide truncate font-bold">All gigs</span>
                 <span class="px-2 py-0.5 ml-2 text-xs font-medium tracking-wide text-white bg-yellow-500 rounded-full">3404</span>
             </a>
@@ -55,7 +64,7 @@
             @foreach ($users as $user)
             <tr class="border-2 rounded-md">
                 <td class="px-5"><input type="checkbox" name="row1"></td>
-                <td>
+                <td class="hover:bg-yellow-100 rounded">
                     <a href="/gigs/{{ $user->id }}/edit">
                         {{ $user->role }}
                     </a>
@@ -67,7 +76,7 @@
                     <form method="POST" action="/delete/{{ $user->id }}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">Delete</button>
+                        <button  type="submit" class="bg-yellow-100 hover:bg-yellow-300 text-yellow-500 px-5 py-1 rounded">Delete</button>
                     <form>
                 </td>
             </tr>

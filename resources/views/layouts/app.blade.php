@@ -18,15 +18,6 @@
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
-            <!-- Page Heading -->
-            <!-- @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif -->
-
             <div class="min-h-screen flex antialiased bg-gray-50 text-gray-800">
                 <div class="top-0 left-0 w-64 bg-white min-h-screen border-r">
                     <div class="flex items-center justify-center h-14 border-b">
@@ -45,7 +36,7 @@
                         
                         </li>
                         <li>
-                        <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-yellow-500 pr-6">
+                        <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-yellow-500 hover:text-gray-800 border-l-4 border-transparent pr-6">
                             <span class="inline-flex justify-center items-center ml-4">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
                             </span>
@@ -107,14 +98,7 @@
                         </div>
                     </nav>
                     
-                    <div class="flex justify-between items-center px-20 py-10 bg-white">
-                        <div class="flex items-center">
-                            <h1 class="font-bold text-2xl">Gigs</h1>
-                        </div>
-                        <div class="flex items-center">
-                            <a href="/gigs/new-gig"><button class="bg-blue-900 text-white py-2 px-4 rounded font-bold">New gig   +</button></a>
-                        </div>
-                    </div>
+
 
                     <!-- Page Content -->
                     <main>

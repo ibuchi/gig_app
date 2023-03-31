@@ -37,17 +37,6 @@ class GigsController extends Controller
         return redirect('/dashboard');
     }
 
-    public function destroy($id)
-    {
-        $gig = Gigs::find($id);
-
-        $this->authorize('delete', $gig);
-        
-        $gig->delete();
-
-        return redirect('/dashboard');
-    }
-
     public function edit(Request $request, $id)
     {
         $gig = Gigs::findOrFail($id);
@@ -78,6 +67,15 @@ class GigsController extends Controller
     
         session()->flash('success', 'The gig has been updated.');
     
+        return redirect('/dashboard');
+    }
+
+    public function destroy($id)
+    {
+        $gig = Gigs::find($id);
+        
+        $gig->delete();
+
         return redirect('/dashboard');
     }
 }

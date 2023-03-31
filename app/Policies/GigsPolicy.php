@@ -45,7 +45,7 @@ class GigsPolicy
      */
     public function delete(User $user, Gigs $gig): bool
     {
-        return $user->id === $gig->user_id;
+        //
     }
 
     /**
