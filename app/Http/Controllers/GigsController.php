@@ -73,9 +73,15 @@ class GigsController extends Controller
     public function destroy($id)
     {
         $gig = Gigs::find($id);
+
+        $this->authorize('delete', $gig);
         
         $gig->delete();
 
         return redirect('/dashboard');
     }
+    
+    
 }
+
+

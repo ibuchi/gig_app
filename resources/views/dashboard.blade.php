@@ -61,23 +61,21 @@
                 <th class="w-1/6">Salary($)</th>
                 <th class="w-1/6">Delete</th>
             </tr>
-            @foreach ($users as $user)
+            @foreach ($gigs as $gig)
             <tr class="border-2 rounded-md">
                 <td class="px-5"><input type="checkbox" name="row1"></td>
                 <td class="hover:bg-yellow-100 rounded">
-                    <a href="/gigs/{{ $user->id }}/edit">
-                        {{ $user->role }}
+                    <a href="/gigs/{{ $gig->id }}/edit">
+                        {{ $gig->role }}
                     </a>
                 </td>
-                <td>{{ $user->company }}</td>
-                <td>{{ $user->created_at }}</td>
-                <td>{{ $user->minimum_salary . " " . " - " . $user->maximum_salary }}</td>
+                <td>{{ $gig->company }}</td>
+                <td>{{ $gig->created_at }}</td>
+                <td>{{ $gig->minimum_salary . " " . " - " . $gig->maximum_salary }}</td>
                 <td>
-                    <form method="POST" action="/delete/{{ $user->id }}">
-                        @csrf
-                        @method('DELETE')
+                    <a href="/delete/{{ $gig->id }}">
                         <button  type="submit" class="bg-yellow-100 hover:bg-yellow-300 text-yellow-500 px-5 py-1 rounded">Delete</button>
-                    <form>
+                    </a>
                 </td>
             </tr>
             @endforeach
