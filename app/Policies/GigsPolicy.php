@@ -35,9 +35,9 @@ class GigsPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Gigs $gigs): bool
+    public function update(User $user, Gigs $gig): bool
     {
-        return $user->id === $gigs->user_id;
+        return $user->id === $gig->user_id;
     }
 
     /**
@@ -46,7 +46,7 @@ class GigsPolicy
     public function delete(User $user, Gigs $gig): bool
     {
 
-        return $user->id === $gig->user_id;
+        return $this->update($user, $gig);
     }
 
     /**

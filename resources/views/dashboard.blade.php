@@ -4,7 +4,7 @@
             <h1 class="font-bold text-2xl">Gigs</h1>
         </div>
         <div class="flex items-center">
-            <a href="/gigs/new-gig"><button class="bg-blue-900 text-white py-2 px-4 rounded font-bold">New gig  +</button></a>
+            <a href="{{ route('gigs.create') }}"><button class="bg-blue-900 text-white py-2 px-4 rounded font-bold">New gig  +</button></a>
         </div>
     </div>
 
@@ -65,7 +65,7 @@
             <tr class="border-2 rounded-md">
                 <td class="px-5"><input type="checkbox" name="row1"></td>
                 <td class="hover:bg-yellow-100 rounded">
-                    <a href="/gigs/{{ $gig->id }}/edit">
+                    <a href="{{ route('gigs.edit', $gig) }}">
                         {{ $gig->role }}
                     </a>
                 </td>
@@ -73,9 +73,11 @@
                 <td>{{ $gig->created_at }}</td>
                 <td>{{ $gig->minimum_salary . " " . " - " . $gig->maximum_salary }}</td>
                 <td>
-                    <a href="/delete/{{ $gig->id }}">
-                        <button  type="submit" class="bg-yellow-100 hover:bg-yellow-300 text-yellow-500 px-5 py-1 rounded">Delete</button>
-                    </a>
+                    <form method="post" action="{{ route('gigs.destroy', $gig) }}" >
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="bg-yellow-100 hover:bg-yellow-300 text-yellow-500 px-5 py-1 rounded">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach

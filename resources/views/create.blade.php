@@ -3,7 +3,7 @@
         <p>New Gig</P>
     </div> 
     <div  class="px-20 mb-20">
-        <form method="POST" action="/gigs/new-gig" class="border rounded px-20">
+        <form method="POST" action="{{ route('gigs.store') }}" class="border rounded px-20">
             @csrf
             <div class="space-y-12">
                 <div class="mt-10 grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-6">

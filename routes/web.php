@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GigsController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Gigs;
 use Illuminate\Support\Facades\Route;
@@ -29,17 +30,10 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
-    
-    Route::get('/gigs/new-gig', [App\Http\Controllers\GigsController::class, 'create'])->name('create');
-    Route::post('/gigs/new-gig', [App\Http\Controllers\GigsController::class, 'store'])->name('store');
-    
+
+    Route::resource('gigs', GigsController::class)->except(['index', 'show']);
+
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
-    
-    Route::get('/gigs/{id}/edit', [App\Http\Controllers\GigsController::class, 'edit'])->name('edit');
-    Route::put('/gigs/{id}/edit', [App\Http\Controllers\GigsController::class, 'update'])->name('update');
-    
-    
-    Route::get('/delete/{id}', [App\Http\Controllers\GigsController::class, 'destroy'])->name('destroy');
 });
 
 

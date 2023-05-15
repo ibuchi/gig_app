@@ -1,23 +1,23 @@
 <x-app-layout>
 <div>
-    <form method="POST" action="/gigs/{{ $gig->id }}/edit">
+    <form method="POST" action="{{ route('gigs.update', $gig) }}">
         @csrf
         @method('PUT')
         <div class="space-y-12">
             <div class="mt-10 grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-6">
             
                 <div class="sm:col-span-3">
-                <label for="role" class="block text-sm font-medium leading-6 text-gray-900">Role</label>
-                <div class="mt-2">
-                    <input type="text" name="role" id="role" autocomplete="given-role" value="{{ $gig->role }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
+                    <label for="role" class="block text-sm font-medium leading-6 text-gray-900">Role</label>
+                    <div class="mt-2">
+                        <input type="text" name="role" id="role" autocomplete="given-role" value="{{ $gig->role }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    </div>
                 </div>
 
                 <div class="sm:col-span-3">
-                <label for="company" class="block text-sm font-medium leading-6 text-gray-900">Company</label>
-                <div class="mt-2">
-                    <input type="text" name="company" id="company" autocomplete="company-name" value="{{ $gig->company }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
+                    <label for="company" class="block text-sm font-medium leading-6 text-gray-900">Company</label>
+                    <div class="mt-2">
+                        <input type="text" name="company" id="company" autocomplete="company-name" value="{{ $gig->company }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    </div>
                 </div>
         
 
