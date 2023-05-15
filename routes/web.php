@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Gigs;
 use Illuminate\Support\Facades\Route;
@@ -19,11 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard', [
-        'gigs' => Gigs::all(),
-    ]);
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,16 +27,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/gigs/new-gig', [App\Http\Controllers\GigsController::class, 'create'])->name('create');
-Route::post('/gigs/new-gig', [App\Http\Controllers\GigsController::class, 'store'])->name('store');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
-
-Route::get('/gigs/{id}/edit', [App\Http\Controllers\GigsController::class, 'edit'])->name('edit');
-Route::put('/gigs/{id}/edit', [App\Http\Controllers\GigsController::class, 'update'])->name('update');
-
-
-Route::get('/delete/{id}', [App\Http\Controllers\GigsController::class, 'destroy'])->name('destroy');
+Route::middleware('auth')->group(function() {
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    
+    Route::get('/gigs/new-gig', [App\Http\Controllers\GigsController::class, 'create'])->name('create');
+    Route::post('/gigs/new-gig', [App\Http\Controllers\GigsController::class, 'store'])->name('store');
+    
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
+    
+    Route::get('/gigs/{id}/edit', [App\Http\Controllers\GigsController::class, 'edit'])->name('edit');
+    Route::put('/gigs/{id}/edit', [App\Http\Controllers\GigsController::class, 'update'])->name('update');
+    
+    
+    Route::get('/delete/{id}', [App\Http\Controllers\GigsController::class, 'destroy'])->name('destroy');
+});
 
 
 require __DIR__.'/auth.php';
